@@ -10,7 +10,7 @@
 #="months" : a month
 #="years" : a year
 #="fyears" : a fiscal year in Japan (April to March)
-#If interval is set to a number, tabulates by a interval of it in second
+#If interval is set to a number, tabulates by a interval of the value in second
 
 #units:Unit of output time 
 #units=c("secs", "mins", "hours","days", "weeks")
