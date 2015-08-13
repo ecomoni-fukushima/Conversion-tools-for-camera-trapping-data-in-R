@@ -65,7 +65,7 @@ table.cam<-function(detection, occasion, trange=NULL, interval="months",units="m
 	effortagg<-aggregate(list(time=effort0[,c("time")]),effort0[,c("institutionCode","collectionCode","locationID","begin","end")],sum)
 	effortagg<-effortagg[order(effortagg$institutionCode,effortagg$collectionCode,effortagg$locationID,effortagg$begin),]
 
-	#tabulate number of event within each intervals
+	#tabulate number of events within each intervals
 	objlist<-unique(detection$object)
 	nobj<-length(objlist)
 	eventtime<-vec2ct(detection$y,detection$m,detection$d,detection$hm)
