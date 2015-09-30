@@ -70,7 +70,7 @@ table.cam<-function(detection, occasion, trange=NULL, interval="months",units="m
 	nobj<-length(objlist)
 	eventtime<-vec2ct(detection$y,detection$m,detection$d,detection$hm)
 	eventtag<-inttag(eventtime,int1,int2)
-	detectiontag<-cbind(eventtag,detection,nevents=rep(1,nrow(eventtag)))
+	detectiontag<-cbind(eventtag,detection[,!is.element(colnames(detection),c("class","genus","species","subspecies","identify.vague"))],nevents=rep(1,nrow(eventtag)))
 	detectionsp<-reshape(detectiontag,timevar="object",idvar=colnames(detectiontag)[!is.element(colnames(detectiontag),c("object","individualCount","nevents"))],direction="wide")
 	detectionsp2<-detectionsp[!is.na(detectionsp$begin),]
 	eventagg<-aggregate(detectionsp2[,grep("(^individualCount\\.|^nevents\\.)",colnames(detectionsp2))],detectionsp2[,c("begin","end","institutionCode","collectionCode","locationID")],sum,na.rm=T)
